@@ -1,0 +1,16 @@
+<h2> Sticks </h2>
+
+<%= form_tag(sticks_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Sticks" %>
+    <%= submit_tag "Search", :name => nil%>
+<% end %>
+
+
+<% @sticks.each do |stick| %>
+    <h3><%= link_to stick.brand, stick_reviews_path(stick)%></h3>
+   
+    <p>model: <%= stick.model %></p>
+    <p>size: <%= stick.size %></p>
+    <p>flex: <%= stick.flex %></p>
+
+<% end %>

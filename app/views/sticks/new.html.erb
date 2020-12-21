@@ -1,0 +1,17 @@
+<h2> Add a Stick </h2>
+
+
+<%= form_for @stick do |f| %>
+    <%= f.label :brand %>
+    <div><%= f.text_field :brand %></div>
+    <p><%= f.label :model %></p>
+    <div><%= f.text_field :model %></div>
+    <p><%= f.label :size %></p>
+    <div><%= f.text_field :size %></div>
+    <p><%= f.label :flex %></p>
+    <div><%= f.text_field :flex %></div>
+  
+    
+
+    <%= f.submit "Add Stick" %>
+<% end %>
