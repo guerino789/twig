@@ -14,10 +14,12 @@ ActiveRecord::Schema.define(version: 2020_12_19_024542) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "review"
-    t.integer "stick_id"
     t.integer "user_id"
+    t.integer "stick_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["stick_id"], name: "index_reviews_on_stick_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "sticks", force: :cascade do |t|
@@ -42,4 +44,6 @@ ActiveRecord::Schema.define(version: 2020_12_19_024542) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reviews", "sticks"
+  add_foreign_key "reviews", "users"
 end

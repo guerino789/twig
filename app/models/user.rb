@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reviews
   has_many :sticks, through: :reviews
+
+  accepts_nested_attributes_for :sticks
 end

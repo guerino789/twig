@@ -1,0 +1,5 @@
+<h2> twigs </h2>
+<%= current_user.email %><br>
+
+<%= link_to 'Your Twigs',user_sticks_path(:user_id) %><br>
+<%= link_to 'Log a new twig', new_user_stick_path(:user_id)%>

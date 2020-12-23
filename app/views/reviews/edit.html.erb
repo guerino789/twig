@@ -1,0 +1,15 @@
+<%= form_for([@stick, @review]) do |f| %>
+  <div class="form-group">
+
+  
+
+  <div class="field"> 
+    <h3><%= f.label :review %><br></h3>
+    <%= f.number_field :review %>
+   </div>
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<%= link_to 'Back', sticks_path %><br>
+
+Brand: <%= @stick.brand %><br>
+Model: <%= @stick.model %><br>
+Size: <%= @stick.size%><br>
+Flex: <%= @stick.flex%><br>
+
+<ul>
+  <li><%= link_to 'Edit Stick', edit_stick_path(@stick) %></li>
+  <li><%= link_to "Delete Stick", stick_path(@stick),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+
+
+
+
+<div id="stick-review">
+  <% if @stick.reviews.blank? %>
+    <%= link_to 'Please add a Review', new_stick_review_path(@stick) %>
+  <% else %>
+    Review: <%=link_to 'Review', stick_reviews_path(@stick) %>
+  <% end %>
+</div> 
