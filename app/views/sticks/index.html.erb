@@ -1,12 +1,19 @@
-<h2> Sticks </h2>
+<h2> Sticks </h2><br>
 
 
 
-<% @sticks.each do |stick| %>
-    <h3><%= link_to stick.brand, stick_reviews_path(stick)%></h3>
-   
-    <p>model: <%= stick.model %></p>
-    <p>size: <%= stick.size %></p>
-    <p>flex: <%= stick.flex %></p
 
+<% @sticks.each do |stick|%>
+ 
+    <%= stick.user.email%><br>
+
+    <%=stick.brand%><br>
+
+    <%= stick.model %><br>
+
+    <br><%= link_to 'list of reviews', stick_reviews_path(:stick_id)%><br>
 <% end %>
+
+
+
+

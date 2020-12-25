@@ -11,7 +11,7 @@
     <p><%= f.label :flex %></p>
     <div><%= f.text_field :flex %></div>
   
-    
+    <%= f.hidden_field :user_id, value: current_user.id %>
 
     <%= f.submit "Add Stick" %>
 <% end %>

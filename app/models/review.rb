@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
     belongs_to :user
     belongs_to :stick
+    
 
     accepts_nested_attributes_for :stick
 

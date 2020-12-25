@@ -1,25 +1,31 @@
 class ReviewsController < ApplicationController
    
     def index
-        #byebug
-        @review = Review.find_by(id: params[:stick_id])
+       #binding.pry
+        @reviews = Review.all
+
     end
 
     def show 
-        @review = Review.find(params[:id])
+        # binding.pry
+        @review = Review.find_by(id: params[:id])
     end
 
     def new
         @review = Review.new
+        
+        @stick = Stick.find_by(id: params[:stick_id])
+        
     end
+
     def create
-        #try to use strong parameters
-        @review = Review.new
+        @review = Review.create(review_params)
         if @review.save
             redirect_to stick_path(@review.stick)
         else
             render :new
         end
+        #review_params.merge({user_id:current_user.id})
     end
 
     def edit
@@ -41,6 +47,6 @@ class ReviewsController < ApplicationController
 
 
     def review_params
-        params.require(:review).permit(:review, :stick_id, :user_id, sticks_attributes: :brand )
+        params.require(:review).permit(:review, :user_id, :stick_id)
     end
 end

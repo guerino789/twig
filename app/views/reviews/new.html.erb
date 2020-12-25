@@ -2,13 +2,17 @@
 
 
 
-<%= form_for @review do |f| %>
+<%= form_for [@stick, @review] do |f| %>
     <p>
+    <%binding.pry%>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :stick_id, value: @stick.id %>
       <%= f.label :review %><br>
       <%= f.text_area :review  %>
+      
     </p>
     
-    
+  
       <%= f.submit %>
     
   <% end %>

@@ -4,6 +4,7 @@ Brand: <%= @stick.brand %><br>
 Model: <%= @stick.model %><br>
 Size: <%= @stick.size%><br>
 Flex: <%= @stick.flex%><br>
+User: <%= @stick.user_id%>
 
 <ul>
   <li><%= link_to 'Edit Stick', edit_stick_path(@stick) %></li>
@@ -20,6 +21,9 @@ Flex: <%= @stick.flex%><br>
   <% if @stick.reviews.blank? %>
     <%= link_to 'Please add a Review', new_stick_review_path(@stick) %>
   <% else %>
-    Review: <%=link_to 'Review', stick_reviews_path(@stick) %>
+    <% @stick.reviews.each do |review| %>
+      <h3>User: <%=review.user.id%></h3>
+      Review: <%=link_to 'Review', stick_review_path(@stick, review) %>
+    <% end %>
   <% end %>
 </div> 
