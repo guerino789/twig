@@ -4,26 +4,25 @@ Brand: <%= @stick.brand %><br>
 Model: <%= @stick.model %><br>
 Size: <%= @stick.size%><br>
 Flex: <%= @stick.flex%><br>
-User: <%= @stick.user_id%>
+User: <%= @stick.user_id%><br>
 
-<ul>
-  <li><%= link_to 'Edit Stick', edit_stick_path(@stick) %></li>
-  <li><%= link_to "Delete Stick", stick_path(@stick),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %></li>
-</ul>
+
+
+
+  <% if @stick.user_id == current_user.id %>
+    <%= link_to "Edit",  edit_stick_path(@stick) %><br>
+    
+    <%= button_to "Delete", stick_path(@stick),  :method => :delete %>
+  <% end %>
 
 
 
 
 
 <div id="stick-review">
-  <% if @stick.reviews.blank? %>
     <%= link_to 'Please add a Review', new_stick_review_path(@stick) %>
-  <% else %>
     <% @stick.reviews.each do |review| %>
-      <h3>User: <%=review.user.id%></h3>
+      <h3>User: <%=review.user.email%></h3>
       Review: <%=link_to 'Review', stick_review_path(@stick, review) %>
-    <% end %>
   <% end %>
 </div> 

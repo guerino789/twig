@@ -5,15 +5,12 @@ class SticksController < ApplicationController
    
 
     def index 
-        
         @sticks = Stick.all
     end    
 
     def show 
         
         @stick = Stick.find(params[:id])
-        
-      
     end
 
     def new
@@ -31,12 +28,8 @@ class SticksController < ApplicationController
     end
     # (stick_params.merge({:user_id => current_user.id}))
     def edit
-        @stick = Stick.find(current_user.id)
-        if @stick == current_user.id 
-            render :edit
-        else 
-            render :root
-        end
+        @stick = Stick.find(params[:id])
+      
     end
 
     def update
@@ -47,6 +40,13 @@ class SticksController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        binding.pry
+        @stick = Stick.find(params[:id])
+        @stick.destroy
+        redirect_to  user_path(:user_id), notice: "Stick Deleted!!!"      
     end
 
 

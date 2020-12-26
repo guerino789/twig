@@ -8,5 +8,10 @@ class UsersController < ApplicationController
         render "sticks/index"
     end
 
+    # def stick 
+    #     @stick = Stick.find(params[:id])
+    #     render "sticks/show"
+    # end
+
    
 end

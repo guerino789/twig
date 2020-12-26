@@ -1,11 +1,11 @@
-<%= form_for([@stick, @review]) do |f| %>
+<%= form_for [@stick, @review] do |f| %>
   <div class="form-group">
 
   
 
   <div class="field"> 
     <h3><%= f.label :review %><br></h3>
-    <%= f.number_field :review %>
+    <%= f.text_area :review %>
    </div>
   
 

@@ -2,8 +2,7 @@ class ReviewsController < ApplicationController
    
     def index
        #binding.pry
-        @reviews = Review.all
-
+        @reviews = Review.newest_first
     end
 
     def show 
@@ -29,8 +28,9 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @stick = Stick.find(params[:stick_id])
-        @review = Review.find_by(id: params[:id])
+        #binding.pry
+        @stick = Stick.find_by(id: params[:stick_id])
+        @review = Review.find(params[:id])
     end
 
     def update
@@ -41,6 +41,12 @@ class ReviewsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @review = Review.find(params[:id])
+        @review.destroy
+        redirect_to sticks_path, notice: "Review deleted!!!"
     end
  
     private 

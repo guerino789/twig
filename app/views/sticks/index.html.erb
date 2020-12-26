@@ -3,15 +3,14 @@
 
 
 
-<% @sticks.each do |stick|%>
+<% @sticks.each do |stick|%><br>
  
     <%= stick.user.email%><br>
 
-    <%=stick.brand%><br>
+    <%= link_to stick.brand, stick_path(stick.id) %><br>
 
     <%= stick.model %><br>
 
-    <br><%= link_to 'list of reviews', stick_reviews_path(:stick_id)%><br>
 <% end %>
 
 
