@@ -3,7 +3,7 @@ class Review < ApplicationRecord
     belongs_to :stick
 
      validates :review, presence: true
-      validates :review, length: { minimum: 5 }
+     validates :review, length: { minimum: 5 }
     
 
     accepts_nested_attributes_for :stick

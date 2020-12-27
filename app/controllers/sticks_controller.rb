@@ -5,7 +5,7 @@ class SticksController < ApplicationController
    
 
     def index 
-        @sticks = Stick.all
+        @sticks = Stick.newest_first
     end    
 
     def show 

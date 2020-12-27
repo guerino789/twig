@@ -4,6 +4,8 @@ class Stick < ApplicationRecord
     belongs_to :user
 
     validates :brand, :model, :size, :flex, presence: true
+
+    scope :newest_first, -> { order(created_at: :desc) }
     
     
     accepts_nested_attributes_for :users
